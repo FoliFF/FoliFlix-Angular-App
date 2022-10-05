@@ -21,6 +21,12 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MatIconModule } from '@angular/material/icon';
 
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { GenreComponent } from './genre/genre.component';
+import { DirectorComponent } from './director/director.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -34,7 +40,13 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    ProfileComponent,
+    GenreComponent,
+    DirectorComponent,
+    MovieDetailsComponent,
+    EditProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

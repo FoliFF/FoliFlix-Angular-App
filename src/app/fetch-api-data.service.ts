@@ -100,16 +100,16 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  //Get user and get favorite movies of a user 
-  public getUser(Username: any): Observable<any> {
+  /**
+   * calls API endpoint to get data on a single user
+   * @returns JSON object holding data about the requested user
+   */
+  getUser(): Observable<any> {
     const token = localStorage.getItem('token');
-    // Get username from localStorage for URLs
-    const username = localStorage.getItem('Username');
+    const user = localStorage.getItem('user');
     return this.http
-      .get(apiUrl + `users/${username}`, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
+      .get(`${apiUrl}users/${user}`, {
+        headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
@@ -157,15 +157,16 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  //delete user
-  public deleteUser(Username: any): Observable<any> {
-    const username = localStorage.getItem('Username');
+  /**
+   * calls API endpoint to deregister an existing user
+   * @returns	A success message indicating that the profile was successfully deleted.
+   */
+  deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
     return this.http
-      .delete(apiUrl + `users/${username}`, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
+      .delete(`${apiUrl}users/${user}`, {
+        headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }

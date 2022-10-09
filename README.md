@@ -58,7 +58,9 @@ Navigate to project folder to run project
 
 ## Set up app to load data from movie API
 Set up Angular HttpClient 1.1. Go to app.module.ts and add
+
 ```import { HttpClientModule } from '@angular/common/http';```
+
 Add HttpClientModule to the imports of @NgModule
   * Create Angular Service for Consuming REST API 2.1 Create a new Service inside app folder
 
@@ -114,8 +116,11 @@ Structure of components:
 1. Import Angular's built-in router:
 
 ``import { RouterModule, Routes } from '@angular/router';``
+
 2. Add to app.component.html
+
 ``<router-outlet></router-outlet>``
+
 3. Create routes in app.module.ts
 
 ### Deploy application on github pages
@@ -125,3 +130,12 @@ Structure of components:
 ``ng add angular-cli-ghpages.``
 4. Build your application (i.e., generate static HTML, CSS, and JavaScript files out of your application so that browsers can interpret them without the need to use any extra tools/plugins). To do so, run the following command, replacing with your own repository name:
 ``ng deploy --base-href=/<repository-name>/.``
+
+## TypeDoc Documentation
+* Install typedoc (if not yet installed):
+
+``npm install typedoc``
+
+* Run typedoc to generate a docs folder:
+
+``npx typedoc --entryPointStrategy expand ./src``
